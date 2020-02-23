@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import sai.service.SpringSQLDemo.Entity.Student;
 import sai.service.SpringSQLDemo.service.StudentService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/student")
 @AllArgsConstructor
@@ -19,6 +21,11 @@ public class StudentController {
 	@GetMapping("/{id}")
 	public Student getStudentById(@PathVariable Integer id) {
 		return studentService.getSudentByRollNo(id);
+	}
+
+	@GetMapping("/all")
+	public List<Student> getAllNoExpiredList(){
+		return  studentService.getAllNoExpiredList();
 	}
 
 }
